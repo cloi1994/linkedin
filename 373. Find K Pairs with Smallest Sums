@@ -1,0 +1,28 @@
+from heapq import heappush, heappop
+
+class Solution(object):
+    def kSmallestPairs(self, nums1, nums2, k):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :type k: int
+        :rtype: List[List[int]]
+        """
+        
+        hq = []
+        
+        res = []
+        
+        
+        
+        for i in range(min(len(nums1),k)):
+            for j in range(min(len(nums2),k)):
+                heappush(hq,(-(nums1[i]+nums2[j]),nums1[i],nums2[j]))
+                if len(hq) > k:
+                    heappop(hq)
+                
+        for ele in hq:
+            res.append([ele[1],ele[2]])
+            
+        return res
+        
