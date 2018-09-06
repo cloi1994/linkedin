@@ -1,0 +1,34 @@
+class TwoSum:
+    
+    
+    def __init__(self):
+        self.hm = {}
+    
+    """
+    @param number: An integer
+    @return: nothing
+    """
+    def add(self, number):
+        # write your code here
+        self.hm[number] = self.hm.get(number,0) + 1
+
+    """
+    @param value: An integer
+    @return: Find if there exists any pair of numbers which sum is equal to the value.
+    """
+    def find(self, value):
+        # write your code here
+        
+        print self.hm
+        
+        for number in self.hm.keys():
+            t = value - number
+            
+            if t != number and t in self.hm :
+                return True
+                
+            elif t in self.hm and t == number and self.hm[t] > 1:
+                return True
+                
+        return False
+            
