@@ -4,13 +4,15 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
+
+        
         last = len(s)
         
-        res = []
+        res = ""
         
-        for i in range(len(s)-1,-1,-2):
-            if s[i] == ' ' or i == -1:
-                word = s[i+1:last]
+        for i in range(len(s)-1,-2,-1):
+            if i == -1 or s[i] == ' ':
+                word = s[i+1:last]                
                 
                 if not word:
                     continue
