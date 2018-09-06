@@ -1,0 +1,26 @@
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        last = len(s)
+        
+        res = []
+        
+        for i in range(len(s)-1,-1,-2):
+            if s[i] == ' ' or i == -1:
+                word = s[i+1:last]
+                
+                if not word:
+                    continue
+                    
+                if len(res) != 0:
+                    res += ' '
+                res += word
+                
+                last = i
+                
+        return res
+                
+        
