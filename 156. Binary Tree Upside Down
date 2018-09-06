@@ -1,0 +1,38 @@
+"""
+Definition of TreeNode:
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left, self.right = None, None
+"""
+
+class Solution:
+    """
+    @param root: the root of binary tree
+    @return: new root
+    """
+    def upsideDownBinaryTree(self, root):
+        # write your code here
+        
+        
+        prev = None
+        prevRight = None
+        
+        cur = root
+        
+        
+        while cur:
+            curNext = cur.left
+            curRight = cur.right
+            
+            cur.left = prevRight
+            cur.right = prev
+            
+            prevRight = curRight
+            prev = cur
+            
+            cur = curNext
+            
+            
+            
+        return prev
