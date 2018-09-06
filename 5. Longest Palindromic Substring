@@ -11,7 +11,7 @@ class Solution(object):
         
         dp = [ [ False for i in range(len(s))] for j in range(len(s))]
         
-        maxLen = 1
+        maxLen = 0
         longest = ""
         
         for i in range(len(s)-1,-1,-1):
