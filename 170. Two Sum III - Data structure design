@@ -32,3 +32,4 @@ class TwoSum:
                 
         return False
             
+### 都是hashtable。read heavy就把所有sum 都算出来做pre-process。如果write heavy，就只是累加新加入数字的频率，read的时候去做2 sum计算。
