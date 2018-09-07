@@ -1,0 +1,41 @@
+class Solution(object):
+    def canPartitionKSubsets(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: bool
+        """
+        
+        summ = sum(nums)
+        
+        if summ % k != 0:
+            return False
+        
+        visited = [0] * len(nums)
+        
+        return self.dfs(nums,k,summ/k,0,visited,0)
+        
+        
+        
+    def dfs(self,nums,k,target,curSum,visited,idx):
+            
+            if k == 1:
+                return True
+            
+            if curSum == target:
+                return self.dfs(nums,k-1,target,0,visited,0)
+            
+            
+            for i in range(idx,len(nums)):
+                
+                if visited[i]:
+                    continue
+                visited[i] = 1
+                if self.dfs(nums,k,target,curSum+nums[i],visited,i+1):
+                    return True
+                visited[i] = 0
+                
+            return False
+                
+                
+        
